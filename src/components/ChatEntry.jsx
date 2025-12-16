@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({
-  id, sender, body, timeStamp, liked, onToggleLike, isLocal }) => {
+  id,
+  sender,
+  body,
+  timeStamp,
+  liked = false,
+  onToggleLike = () => {},
+  isLocal = true,
+}) => {
 
   const entryClass = `chat-entry ${isLocal ? 'local' : 'remote'}`;
 
@@ -37,12 +44,6 @@ ChatEntry.propTypes = {
   liked: PropTypes.bool,
   onToggleLike: PropTypes.func,
   isLocal: PropTypes.bool,
-};
-
-ChatEntry.defaultProps = {
-  liked: false,
-  onToggleLike: () => {},
-  isLocal: true,
 };
 
 export default ChatEntry;

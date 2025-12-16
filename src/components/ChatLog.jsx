@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const LOCAL_USER = 'Vladimir';
 
-const ChatLog = ({ entries, onToggleLike }) => {
+const ChatLog = ({ entries = [], onToggleLike = () => {} }) => {
   return (
     <div className="chat-log">
       {entries.map((entry) => {
@@ -30,11 +30,6 @@ const ChatLog = ({ entries, onToggleLike }) => {
 ChatLog.propTypes = {
   entries: PropTypes.array,
   onToggleLike: PropTypes.func,
-};
-
-ChatLog.defaultProps = {
-  entries: [],
-  onToggleLike: () => {},
 };
 
 export default ChatLog;
